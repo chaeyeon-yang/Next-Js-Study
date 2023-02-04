@@ -38,6 +38,9 @@ export const Writer = styled.input`
     width: 486px;
     height: 52px;
     border: 1px solid #bdbdbd;
+    &:placeholder {
+        font-size: 16px;
+    }
 `;
 
 export const Password = styled.input`
