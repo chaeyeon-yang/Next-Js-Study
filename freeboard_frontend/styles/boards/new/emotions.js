@@ -31,22 +31,31 @@ export const WriterWrapper = styled.div`
 
 export const Label = styled.div`
     font-size: 16px;
+    font-weight: 500;
     margin-bottom: 16px;
 `;
 
 export const Writer = styled.input`
-    width: 486px;
     height: 52px;
     border: 1px solid #bdbdbd;
-    &:placeholder {
+    padding-left: 15px;
+    margin-right: 25px;
+
+    &::placeholder {
+        color: #bdbdbd;
         font-size: 16px;
     }
 `;
 
 export const Password = styled.input`
-    width: 486px;
     height: 52px;
     border: 1px solid #bdbdbd;
+    padding-left: 15px;
+
+    &::placeholder {
+        color: #bdbdbd;
+        font-size: 16px;
+    }
 `;
 
 export const InputWrapper = styled.div`
@@ -57,30 +66,71 @@ export const InputWrapper = styled.div`
 `;
 
 export const PostTitle = styled.input`
-    width: 996px;
     height: 52px;
     border: 1px solid #bdbdbd;
+    padding-left: 15px;
+
+    &::placeholder {
+        color: #bdbdbd;
+        font-size: 16px;
+    }
 `;
 
-export const Contents = styled.input`
-    width: 996px;
+export const Contents = styled.textarea`
     height: 480px;
     border: 1px solid #bdbdbd;
+    padding-left: 15px;
+    padding-top: 20px;
+    text-align: left;
+
+    &::placeholder {
+        color: #bdbdbd;
+        font-size: 16px;
+    }
 `;
 
 export const ZipWrapper = styled.div``;
 export const ZipCode = styled.input`
     border: 1px solid #bdbdbd;
+    width: 77px;
+    height: 52px;
+    &::placeholder {
+        text-align: center;
+        color: #bdbdbd;
+        font-size: 16px;
+    }
 `;
 
 export const ZipCodeBtn = styled.button`
     background-color: black;
     color: white;
+    font-weight: 500;
+    font-size: 16px;
+    border: 1px solid black;
+    width: 124px;
+    height: 52px;
+    margin-left: 10px;
 `;
 
-export const Address = styled.input``;
+export const Address = styled.input`
+    height: 52px;
+    margin-top: 20px;
+    border: 1px solid #bdbdbd;
+`;
 
-export const YoutubeLink = styled.input``;
+export const YoutubeLink = styled.input`
+    height: 45.78px;
+    border: 1px solid #bdbdbd;
+    padding-left: 15px;
+    &::placeholder {
+        color: #bdbdbd;
+        font-size: 16px;
+    }
+`;
+
+export const ImgSection = styled.div`
+    margin-top: 40px;
+`;
 
 export const ImgWrapper = styled.div`
     display: flex;
@@ -91,13 +141,58 @@ export const Img = styled.div`
     width: 78px;
     height: 78px;
     margin-right: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
-export const RadioWrapper = styled.div``;
+export const ImgIcon = styled.div`
+    color: #4f4f4f;
+    font-size: 35px;
+    padding-top: 10px;
+`;
+
+export const ImgLabel = styled.label`
+    color: #4f4f4f;
+    font-size: 12px;
+    font-weight: 500;
+`;
+
+export const RadioWrapper = styled.div`
+    display: flex;
+`;
 
 export const Radio = styled.input``;
-export const YoutubeLabel = styled.label``;
 
-export const ImgLabel = styled.label``;
+export const RadioSection = styled.div`
+    margin-top: 50px;
+`;
 
-export const RegisterBtn = styled.button``;
+export const Youtube = styled.div`
+    margin-right: 15px;
+`;
+export const Image = styled.div``;
+export const YoutubeLabel = styled.label`
+    font-size: 16px;
+    font-weight: 500;
+`;
+export const ImageLabel = styled.label`
+    font-size: 16px;
+    font-weight: 500;
+`;
+
+export const Btn = styled.div`
+    display: flex;
+    justify-contents: center;
+    align-items: center;
+`;
+
+export const RegisterBtn = styled.button`
+    background-color: #ffd600;
+    padding: 14px 60px 14px 60px;
+    border: none;
+    font-size: 16px;
+    margin-top: 35px;
+    margin-left: 500px;
+`;

@@ -20,7 +20,14 @@ import {
     Radio,
     YoutubeLabel,
     ImgLabel,
+    ImgIcon,
+    ImageLabel,
+    RadioSection,
+    Youtube,
+    Image,
     RegisterBtn,
+    ImgSection,
+    Btn,
 } from "../../../styles/boards/new/emotions";
 export default function PostWritePage() {
     return (
@@ -74,19 +81,44 @@ export default function PostWritePage() {
                         placeholder="링크를 복사해주세요."
                     ></YoutubeLink>
                 </InputWrapper>
-                <ImgWrapper>
-                    <Img></Img>
-                    <Img></Img>
-                    <Img></Img>
-                </ImgWrapper>
-                <RadioWrapper>
-                    <Radio type="radio" id="youtube" name="youtube"></Radio>
-                    <YoutubeLabel for="youtube">유튜브</YoutubeLabel>
-                    <Radio type="radio" id="image" name="image"></Radio>
-                    <ImgLabel for="image">사진</ImgLabel>
-                </RadioWrapper>
+                <ImgSection>
+                    <Label>사진 첨부</Label>
+                    <ImgWrapper>
+                        <Img>
+                            <ImgIcon>+</ImgIcon>
+                            <ImgLabel>Upload</ImgLabel>
+                        </Img>
+                        <Img>
+                            <ImgIcon>+</ImgIcon>
+                            <ImgLabel>Upload</ImgLabel>
+                        </Img>
+                        <Img>
+                            <ImgIcon>+</ImgIcon>
+                            <ImgLabel>Upload</ImgLabel>
+                        </Img>
+                    </ImgWrapper>
+                </ImgSection>
 
-                <RegisterBtn>등록하기</RegisterBtn>
+                <RadioSection>
+                    <Label>메인 설정</Label>
+                    <RadioWrapper>
+                        <Youtube>
+                            <Radio
+                                type="radio"
+                                id="youtube"
+                                name="youtube"
+                            ></Radio>
+                            <YoutubeLabel for="youtube">유튜브</YoutubeLabel>
+                        </Youtube>
+                        <Image>
+                            <Radio type="radio" id="image" name="image"></Radio>
+                            <ImageLabel for="image">사진</ImageLabel>
+                        </Image>
+                    </RadioWrapper>
+                </RadioSection>
+                <Btn>
+                    <RegisterBtn>등록하기</RegisterBtn>
+                </Btn>
             </Container>
         </Body>
     );
