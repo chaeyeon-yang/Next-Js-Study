@@ -36,23 +36,58 @@ export default function PostWritePage() {
     const [password, setPassword] = useState("");
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
-    const [zipcode, setZipcode] = useState("");
     const [address, setAddress] = useState("");
     const [youtubeLink, setYoutubeLink] = useState("");
 
-    const [errorMsg, setErrorMsg] = useState("");
+    const [writerError, setWriterError] = useState("");
+    const [passwordError, setPasswordError] = useState("");
+    const [titleError, setTitleError] = useState("");
+    const [contentError, setContentError] = useState("");
+    const [addressError, setAddressError] = useState("");
+    const [youtubeLinkError, setYoutubeLinkError] = useState("");
+
+    const onChangeWriter = (e) => {
+        setWriter(e.target.value);
+    };
+
+    const onChangePassword = (e) => {
+        setPassword(e.target.value);
+    };
+
+    const onChangeTitle = (e) => {
+        setTitle(e.target.value);
+    };
+
+    const onChangeContent = (e) => {
+        setContent(e.target.value);
+    };
+
+    const onChangeAddress = (e) => {
+        setAddress(e.target.value);
+    };
+
+    const onChangeYoutubeLink = (e) => {
+        setYoutubeLink(e.target.value);
+    };
 
     const onClickRegister = () => {
-        if (
-            !writer ||
-            !password ||
-            !title ||
-            !content ||
-            !zipcode ||
-            !address ||
-            !youtubeLink
-        ) {
-            setErrorMsg("빈칸을 입력하지마세요.");
+        if (!writer) {
+            setWriterError("작성자를 입력하세요.");
+        }
+        if (!password) {
+            setPasswordError("비밀번호를 입력하세요.");
+        }
+        if (!title) {
+            setTitleError("제목을 입력하세요.");
+        }
+        if (!content) {
+            setContentError("내용을 입력하세요.");
+        }
+        if (!address) {
+            setAddressError("주소를 입력하세요.");
+        }
+        if (!youtubeLink) {
+            setYoutubeLinkError("유튜브 링크를 입력하세요.");
         }
     };
 
@@ -66,8 +101,9 @@ export default function PostWritePage() {
                         <Writer
                             type="text"
                             placeholder="이름을 적어주세요."
+                            onChange={onChangeWriter}
                         ></Writer>
-                        <Error>{errorMsg}</Error>
+                        <Error>{writerError}</Error>
                     </InputWrapper>
 
                     <InputWrapper>
@@ -75,8 +111,9 @@ export default function PostWritePage() {
                         <Password
                             type="password"
                             placeholder="비밀번호를 입력해주세요."
+                            onChange={onChangePassword}
                         ></Password>
-                        <Error>{errorMsg}</Error>
+                        <Error>{passwordError}</Error>
                     </InputWrapper>
                 </WriterWrapper>
 
@@ -85,27 +122,29 @@ export default function PostWritePage() {
                     <PostTitle
                         type="text"
                         placeholder="제목을 작성해주세요."
+                        onChange={onChangeTitle}
                     ></PostTitle>
                 </InputWrapper>
-                <Error>{errorMsg}</Error>
+                <Error>{titleError}</Error>
                 <InputWrapper>
                     <Label>내용</Label>
                     <Contents
                         type="text"
                         placeholder="내용을 작성해주세요."
+                        onChange={onChangeContent}
                     ></Contents>
                 </InputWrapper>
-                <Error>{errorMsg}</Error>
+                <Error>{contentError}</Error>
                 <InputWrapper>
                     <Label>주소</Label>
                     <ZipWrapper>
                         <ZipCode type="text" placeholder="07250"></ZipCode>
                         <ZipCodeBtn>우편번호 검색</ZipCodeBtn>
                     </ZipWrapper>
-                    <Address></Address>
-                    <Error>{errorMsg}</Error>
-                    <Address></Address>
-                    <Error>{errorMsg}</Error>
+                    <Address onChange={onChangeAddress}></Address>
+                    <Error>{addressError}</Error>
+                    <Address onChange={onChangeAddress}></Address>
+                    <Error>{addressError}</Error>
                 </InputWrapper>
 
                 <InputWrapper>
@@ -113,9 +152,10 @@ export default function PostWritePage() {
                     <YoutubeLink
                         type="text"
                         placeholder="링크를 복사해주세요."
+                        onChange={onChangeYoutubeLink}
                     ></YoutubeLink>
                 </InputWrapper>
-                <Error>{errorMsg}</Error>
+                <Error>{youtubeLinkError}</Error>
                 <ImgSection>
                     <Label>사진 첨부</Label>
                     <ImgWrapper>
