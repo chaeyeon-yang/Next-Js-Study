@@ -3,12 +3,12 @@ import styled from "@emotion/styled";
 export const Body = styled.div`
     display: flex;
     justify-content: center;
-    margin: 5rem 0;
+    margin: 4.5rem 15rem;
 `;
 
 export const Container = styled.div`
-    width: 1200px;
-    height: 1847px;
+    width: 100%;
+    height: 100%;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
     padding-left: 101px;
     padding-right: 103px;
@@ -17,67 +17,67 @@ export const Container = styled.div`
 export const Title = styled.div`
     font-family: "Noto Sans CJK KR";
     font-weight: 700;
-    font-size: 36px;
+    font-size: 30px;
     line-height: 53px;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 30px;
 `;
 
 export const WriterWrapper = styled.div`
     display: flex;
     justify-content: space-between;
-    margin-top: 80px;
+    margin-top: 30px;
 `;
 
 export const Label = styled.div`
     font-size: 16px;
     font-weight: 500;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
 `;
 
 export const Writer = styled.input`
-    height: 52px;
+    height: 30px;
     border: 1px solid #bdbdbd;
     padding-left: 15px;
     margin-right: 25px;
 
     &::placeholder {
         color: #bdbdbd;
-        font-size: 16px;
+        font-size: 14px;
     }
 `;
 
 export const Password = styled.input`
-    height: 52px;
+    height: 30px;
     border: 1px solid #bdbdbd;
     padding-left: 15px;
 
     &::placeholder {
         color: #bdbdbd;
-        font-size: 16px;
+        font-size: 14px;
     }
 `;
 
 export const InputWrapper = styled.div`
     width: 100%;
-    padding-top: 40px;
+    padding-top: 25px;
     display: flex;
     flex-direction: column;
 `;
 
 export const PostTitle = styled.input`
-    height: 52px;
+    height: 30px;
     border: 1px solid #bdbdbd;
     padding-left: 15px;
 
     &::placeholder {
         color: #bdbdbd;
-        font-size: 16px;
+        font-size: 14px;
     }
 `;
 
 export const Contents = styled.textarea`
-    height: 480px;
+    height: 300px;
     border: 1px solid #bdbdbd;
     padding-left: 15px;
     padding-top: 20px;
@@ -85,7 +85,7 @@ export const Contents = styled.textarea`
 
     &::placeholder {
         color: #bdbdbd;
-        font-size: 16px;
+        font-size: 14px;
     }
 `;
 
@@ -93,11 +93,11 @@ export const ZipWrapper = styled.div``;
 export const ZipCode = styled.input`
     border: 1px solid #bdbdbd;
     width: 77px;
-    height: 52px;
+    height: 30px;
     &::placeholder {
         text-align: center;
         color: #bdbdbd;
-        font-size: 16px;
+        font-size: 14px;
     }
 `;
 
@@ -108,28 +108,28 @@ export const ZipCodeBtn = styled.button`
     font-size: 16px;
     border: 1px solid black;
     width: 124px;
-    height: 52px;
+    height: 35px;
     margin-left: 10px;
 `;
 
 export const Address = styled.input`
-    height: 52px;
+    height: 30px;
     margin-top: 20px;
     border: 1px solid #bdbdbd;
 `;
 
 export const YoutubeLink = styled.input`
-    height: 45.78px;
+    height: 30px;
     border: 1px solid #bdbdbd;
     padding-left: 15px;
     &::placeholder {
         color: #bdbdbd;
-        font-size: 16px;
+        font-size: 14px;
     }
 `;
 
 export const ImgSection = styled.div`
-    margin-top: 40px;
+    margin-top: 30px;
 `;
 
 export const ImgWrapper = styled.div`
@@ -166,7 +166,7 @@ export const RadioWrapper = styled.div`
 export const Radio = styled.input``;
 
 export const RadioSection = styled.div`
-    margin-top: 50px;
+    margin-top: 35px;
 `;
 
 export const Youtube = styled.div`
@@ -182,17 +182,14 @@ export const ImageLabel = styled.label`
     font-weight: 500;
 `;
 
-export const Btn = styled.div`
-    display: flex;
-    justify-contents: center;
-    align-items: center;
-`;
+export const Btn = styled.div``;
 
 export const RegisterBtn = styled.button`
     background-color: #ffd600;
-    padding: 14px 60px 14px 60px;
+    padding: 14px 60px;
     border: none;
     font-size: 16px;
-    margin-top: 35px;
-    margin-left: 500px;
+    margin-top: 25px;
+    margin-bottom: 40px;
+    margin-left: 210px;
 `;
