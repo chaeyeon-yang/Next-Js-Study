@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const Body = styled.div`
     display: flex;
     justify-content: center;
-    margin: 4.5rem 15rem;
+    margin: 2.5rem 15rem;
 `;
 
 export const Container = styled.div`
@@ -182,14 +182,24 @@ export const ImageLabel = styled.label`
     font-weight: 500;
 `;
 
-export const Btn = styled.div``;
+export const Btn = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+`;
 
 export const RegisterBtn = styled.button`
     background-color: #ffd600;
-    padding: 14px 60px;
+    padding: 10px 50px;
     border: none;
     font-size: 16px;
     margin-top: 25px;
     margin-bottom: 40px;
-    margin-left: 210px;
+`;
+
+export const Error = styled.div`
+    color: #dc2626;
+    font-size: 13px;
+    margin-top: 5px;
 `;

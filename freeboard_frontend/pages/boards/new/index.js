@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
     Body,
     Container,
@@ -28,8 +29,33 @@ import {
     RegisterBtn,
     ImgSection,
     Btn,
+    Error,
 } from "../../../styles/boards/new/emotions";
 export default function PostWritePage() {
+    const [writer, setWriter] = useState("");
+    const [password, setPassword] = useState("");
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
+    const [zipcode, setZipcode] = useState("");
+    const [address, setAddress] = useState("");
+    const [youtubeLink, setYoutubeLink] = useState("");
+
+    const [errorMsg, setErrorMsg] = useState("");
+
+    const onClickRegister = () => {
+        if (
+            !writer ||
+            !password ||
+            !title ||
+            !content ||
+            !zipcode ||
+            !address ||
+            !youtubeLink
+        ) {
+            setErrorMsg("빈칸을 입력하지마세요.");
+        }
+    };
+
     return (
         <Body>
             <Container>
@@ -41,15 +67,19 @@ export default function PostWritePage() {
                             type="text"
                             placeholder="이름을 적어주세요."
                         ></Writer>
+                        <Error>{errorMsg}</Error>
                     </InputWrapper>
+
                     <InputWrapper>
                         <Label>비밀번호</Label>
                         <Password
                             type="password"
                             placeholder="비밀번호를 입력해주세요."
                         ></Password>
+                        <Error>{errorMsg}</Error>
                     </InputWrapper>
                 </WriterWrapper>
+
                 <InputWrapper>
                     <Label>제목</Label>
                     <PostTitle
@@ -57,6 +87,7 @@ export default function PostWritePage() {
                         placeholder="제목을 작성해주세요."
                     ></PostTitle>
                 </InputWrapper>
+                <Error>{errorMsg}</Error>
                 <InputWrapper>
                     <Label>내용</Label>
                     <Contents
@@ -64,7 +95,7 @@ export default function PostWritePage() {
                         placeholder="내용을 작성해주세요."
                     ></Contents>
                 </InputWrapper>
-
+                <Error>{errorMsg}</Error>
                 <InputWrapper>
                     <Label>주소</Label>
                     <ZipWrapper>
@@ -72,8 +103,11 @@ export default function PostWritePage() {
                         <ZipCodeBtn>우편번호 검색</ZipCodeBtn>
                     </ZipWrapper>
                     <Address></Address>
+                    <Error>{errorMsg}</Error>
                     <Address></Address>
+                    <Error>{errorMsg}</Error>
                 </InputWrapper>
+
                 <InputWrapper>
                     <Label>유튜브</Label>
                     <YoutubeLink
@@ -81,6 +115,7 @@ export default function PostWritePage() {
                         placeholder="링크를 복사해주세요."
                     ></YoutubeLink>
                 </InputWrapper>
+                <Error>{errorMsg}</Error>
                 <ImgSection>
                     <Label>사진 첨부</Label>
                     <ImgWrapper>
@@ -117,7 +152,9 @@ export default function PostWritePage() {
                     </RadioWrapper>
                 </RadioSection>
                 <Btn>
-                    <RegisterBtn>등록하기</RegisterBtn>
+                    <RegisterBtn onClick={onClickRegister}>
+                        등록하기
+                    </RegisterBtn>
                 </Btn>
             </Container>
         </Body>
