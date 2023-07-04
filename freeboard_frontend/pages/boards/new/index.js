@@ -89,6 +89,10 @@ export default function PostWritePage() {
         if (!youtubeLink) {
             setYoutubeLinkError("유튜브 링크를 입력하세요.");
         }
+
+        if (writer && password && title && content && address && youtubeLink) {
+            alert("회원가입을 축하합니다!");
+        }
     };
 
     return (
