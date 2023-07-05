@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { gql, useMutation } from "@apollo/client";
 import {
     Body,
     Container,
@@ -31,6 +32,17 @@ import {
     Btn,
     Error,
 } from "../../../styles/boards/new/emotions";
+
+const CREATE_BOARD = gql`
+    mutation createBoard($writer: String, $title: String, $contents: String) {
+        createBoard(writer: $writer, title: $title, contents: $contents) {
+            _id
+            number
+            message
+        }
+    }
+`;
+
 export default function PostWritePage() {
     const [writer, setWriter] = useState("");
     const [password, setPassword] = useState("");
@@ -70,7 +82,8 @@ export default function PostWritePage() {
         setYoutubeLink(e.target.value);
     };
 
-    const onClickRegister = () => {
+    const [createBoard] = useMutation(CREATE_BOARD);
+    const onClickRegister = async () => {
         if (!writer) {
             setWriterError("작성자를 입력하세요.");
         }
@@ -91,6 +104,20 @@ export default function PostWritePage() {
         }
 
         if (writer && password && title && content && address && youtubeLink) {
+            const res = await createBoard({
+                variables: {
+                    writer: writer,
+                    title: title,
+                    contents: content,
+                },
+            });
+            console.log(res);
+            setAddressError("");
+            setContentError("");
+            setPasswordError("");
+            setTitleError("");
+            setWriterError("");
+            setYoutubeLinkError("");
             alert("회원가입을 축하합니다!");
         }
     };

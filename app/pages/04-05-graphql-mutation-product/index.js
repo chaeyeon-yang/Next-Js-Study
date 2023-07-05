@@ -9,9 +9,8 @@ const CREATE_PRODUCT = gql`
         # 변수의 type 적는 곳
         createProduct(
             seller: $seller
-            createProductInput: $createProductInput
+            createProductInput: $createProductInput # 실제 우리가 전달할 변수 적는 곳
         ) {
-            # 실제 우리가 전달할 변수 적는 곳
             _id
             number
             message
