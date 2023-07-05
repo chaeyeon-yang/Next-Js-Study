@@ -34,18 +34,19 @@ import {
 } from "../../../styles/boards/new/emotions";
 
 const CREATE_BOARD = gql`
-    mutation createBoard($writer: String, $title: String, $contents: String) {
-        createBoard(writer: $writer, title: $title, contents: $contents) {
+    mutation createBoard($createBoardInput: CreateBoardInput!) {
+        createBoard(createBoardInput: $createBoardInput) {
             _id
-            number
-            message
+            writer
+            title
+            contents
         }
     }
 `;
 
 export default function PostWritePage() {
     const [writer, setWriter] = useState("");
-    const [password, setPassword] = useState("");
+    const [password, setPassword] = useState(0);
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [address, setAddress] = useState("");
@@ -106,9 +107,12 @@ export default function PostWritePage() {
         if (writer && password && title && content && address && youtubeLink) {
             const res = await createBoard({
                 variables: {
-                    writer: writer,
-                    title: title,
-                    contents: content,
+                    createBoardInput: {
+                        writer: writer,
+                        title: title,
+                        password: password,
+                        contents: content,
+                    },
                 },
             });
             console.log(res);
