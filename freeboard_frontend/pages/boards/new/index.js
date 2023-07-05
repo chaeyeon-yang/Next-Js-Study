@@ -48,14 +48,14 @@ export default function PostWritePage() {
     const [writer, setWriter] = useState("");
     const [password, setPassword] = useState(0);
     const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
+    const [contents, setContents] = useState("");
     const [address, setAddress] = useState("");
     const [youtubeLink, setYoutubeLink] = useState("");
 
     const [writerError, setWriterError] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [titleError, setTitleError] = useState("");
-    const [contentError, setContentError] = useState("");
+    const [contentsError, setContentsError] = useState("");
     const [addressError, setAddressError] = useState("");
     const [youtubeLinkError, setYoutubeLinkError] = useState("");
 
@@ -72,7 +72,7 @@ export default function PostWritePage() {
     };
 
     const onChangeContent = (e) => {
-        setContent(e.target.value);
+        setContents(e.target.value);
     };
 
     const onChangeAddress = (e) => {
@@ -94,8 +94,8 @@ export default function PostWritePage() {
         if (!title) {
             setTitleError("제목을 입력하세요.");
         }
-        if (!content) {
-            setContentError("내용을 입력하세요.");
+        if (!contents) {
+            setContentsError("내용을 입력하세요.");
         }
         if (!address) {
             setAddressError("주소를 입력하세요.");
@@ -104,20 +104,20 @@ export default function PostWritePage() {
             setYoutubeLinkError("유튜브 링크를 입력하세요.");
         }
 
-        if (writer && password && title && content && address && youtubeLink) {
+        if (writer && password && title && contents && address && youtubeLink) {
             const res = await createBoard({
                 variables: {
                     createBoardInput: {
-                        writer: writer,
-                        title: title,
-                        password: password,
-                        contents: content,
+                        writer,
+                        title,
+                        password,
+                        contents,
                     },
                 },
             });
             console.log(res);
             setAddressError("");
-            setContentError("");
+            setContentsError("");
             setPasswordError("");
             setTitleError("");
             setWriterError("");
@@ -169,7 +169,7 @@ export default function PostWritePage() {
                         onChange={onChangeContent}
                     ></Contents>
                 </InputWrapper>
-                <Error>{contentError}</Error>
+                <Error>{contentsError}</Error>
                 <InputWrapper>
                     <Label>주소</Label>
                     <ZipWrapper>
