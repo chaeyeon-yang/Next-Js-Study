@@ -7,3 +7,7 @@ export const RedInput = styled.input`
 export const BlueButton = styled.button`
     background-color: blue;
 `;
+
+const qqq = "짱구";
+
+export default qqq;
