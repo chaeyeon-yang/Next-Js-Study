@@ -24,14 +24,36 @@ import {
     StyledThumbDownIcon,
     ThumbDownCount,
 } from "@/styles/boards/detail/emotions";
+import gql from "graphql-tag";
+import { useRouter } from "next/router";
+import { useQuery } from "@apollo/client";
+
+const FETCH_BOARD = gql`
+    query fetchBoard($boardId: ID!) {
+        fetchBoard(boardId: $boardId) {
+            writer
+            title
+            contents
+        }
+    }
+`;
 
 export default function index() {
+    const router = useRouter();
+    console.log(router);
+
+    const { data } = useQuery(FETCH_BOARD, {
+        variables: {
+            boardId: router.query.id,
+        },
+    });
+
     return (
         <Container>
             <PostHeader>
                 <Profile></Profile>
                 <PostDetail>
-                    <User>양채연</User>
+                    <User>{data && data.fetchBoard.writer}</User>
                     <Date>Date: 2023.07.07</Date>
                 </PostDetail>
                 <HeaderIcons>
@@ -40,9 +62,9 @@ export default function index() {
                 </HeaderIcons>
             </PostHeader>
             <Underline></Underline>
-            <PostTitle>게시글 제목입니다.</PostTitle>
+            <PostTitle>{data && data.fetchBoard.title}</PostTitle>
             <PostImage></PostImage>
-            <Contents>가나다라마바사아자차카타파하</Contents>
+            <Contents>{data && data.fetchBoard.contents}</Contents>
             <Video>
                 <iframe
                     width="400"

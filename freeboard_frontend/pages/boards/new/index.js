@@ -32,6 +32,7 @@ import {
     Btn,
     Error,
 } from "../../../styles/boards/new/emotions";
+import { useRouter } from "next/router";
 
 const CREATE_BOARD = gql`
     mutation createBoard($createBoardInput: CreateBoardInput!) {
@@ -45,6 +46,8 @@ const CREATE_BOARD = gql`
 `;
 
 export default function PostWritePage() {
+    const router = useRouter();
+
     const [writer, setWriter] = useState("");
     const [password, setPassword] = useState(0);
     const [title, setTitle] = useState("");
@@ -105,24 +108,29 @@ export default function PostWritePage() {
         }
 
         if (writer && password && title && contents && address && youtubeLink) {
-            const res = await createBoard({
-                variables: {
-                    createBoardInput: {
-                        writer,
-                        title,
-                        password,
-                        contents,
+            try {
+                const res = await createBoard({
+                    variables: {
+                        createBoardInput: {
+                            writer,
+                            title,
+                            password,
+                            contents,
+                        },
                     },
-                },
-            });
-            console.log(res);
-            setAddressError("");
-            setContentsError("");
-            setPasswordError("");
-            setTitleError("");
-            setWriterError("");
-            setYoutubeLinkError("");
-            alert("회원가입을 축하합니다!");
+                });
+                console.log("제대로 됐는지 확인", res.data.createBoard._id);
+                setAddressError("");
+                setContentsError("");
+                setPasswordError("");
+                setTitleError("");
+                setWriterError("");
+                setYoutubeLinkError("");
+                alert("회원가입을 축하합니다!");
+                router.push(`/boards/${res.data.createBoard._id}`);
+            } catch (e) {
+                alert(e.message);
+            }
         }
     };
 
