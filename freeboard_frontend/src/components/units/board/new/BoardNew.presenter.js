@@ -109,7 +109,10 @@ export default function BoardNewUI(props) {
                     </S.RadioWrapper>
                 </S.RadioSection>
                 <S.Btn>
-                    <S.RegisterBtn onClick={props.onClickRegister}>
+                    <S.RegisterBtn
+                        onClick={props.onClickRegister}
+                        isActivation={props.activation}
+                    >
                         등록하기
                     </S.RegisterBtn>
                 </S.Btn>

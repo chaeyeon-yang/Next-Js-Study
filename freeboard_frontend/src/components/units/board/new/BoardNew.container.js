@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import { CREATE_BOARD } from "./BoardNew.queries";
@@ -15,12 +15,22 @@ export default function BoardNew() {
     const [address, setAddress] = useState("");
     const [youtubeLink, setYoutubeLink] = useState("");
 
+    const [activation, setActivation] = useState(false);
+
     const [writerError, setWriterError] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [titleError, setTitleError] = useState("");
     const [contentsError, setContentsError] = useState("");
     const [addressError, setAddressError] = useState("");
     const [youtubeLinkError, setYoutubeLinkError] = useState("");
+
+    useEffect(() => {
+        if (writer && password && title && contents && address && youtubeLink) {
+            setActivation(true);
+        } else {
+            setActivation(false);
+        }
+    }, [writer, password, title, contents, address, youtubeLink]);
 
     const onChangeWriter = (e) => {
         setWriter(e.target.value);
@@ -79,7 +89,8 @@ export default function BoardNew() {
                         },
                     },
                 });
-                console.log("제대로 됐는지 확인", res.data.createBoard._id);
+
+                // console.log("제대로 됐는지 확인", res.data.createBoard._id);
                 setAddressError("");
                 setContentsError("");
                 setPasswordError("");
@@ -108,6 +119,7 @@ export default function BoardNew() {
             contentsError={contentsError}
             addressError={addressError}
             youtubeLinkError={youtubeLinkError}
+            activation={activation}
         />
     );
 }

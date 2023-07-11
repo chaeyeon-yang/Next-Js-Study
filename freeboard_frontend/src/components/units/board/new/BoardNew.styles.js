@@ -190,7 +190,8 @@ export const Btn = styled.div`
 `;
 
 export const RegisterBtn = styled.button`
-    background-color: #ffd600;
+    background-color: ${(props) =>
+        props.isActivation ? "#FFD600" : "#BDBDBD"};
     padding: 10px 50px;
     border: none;
     font-size: 16px;
