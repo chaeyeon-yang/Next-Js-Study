@@ -6,15 +6,13 @@ export default function CounterStatePage() {
         setCount(count + 1);
     }
 
-    function onClickCountDown() {
-        setCount(count - 1);
-    }
+    // state의 상태가 변하면 화면이 리렌더링 됨
+    // hook 빼고 모든 코드도 다시 실행 됨
     return (
         // fragment
         <>
             <div>{count}</div>
             <button onClick={onClickCountUp}>카운트 올리기!!!</button>
-            <button onClick={onClickCountDown}>카운트 내리기!!!</button>
         </>
     );
 }

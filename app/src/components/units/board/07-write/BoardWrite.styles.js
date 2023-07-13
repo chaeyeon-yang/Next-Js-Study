@@ -5,5 +5,6 @@ export const RedInput = styled.input`
 `;
 
 export const BlueButton = styled.button`
-    font-size: 16px;
+    font-size: ${(props) => props.rrr};
+    background-color: ${(props) => (props.zzz ? "yellow" : "default")};
 `;
